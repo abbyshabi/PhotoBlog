@@ -26,3 +26,9 @@ def image(request,image_id):
     except DoesNotExist:
         raise Http404()
     return render(request,"image.html", {"image":image})
+def location(request,location):
+        locations = Image.filter_by_location(location)
+        return render(request,'location.html',{"images": locations})
+
+def page(request):
+    return render(request,"page.html",{"title":location})
