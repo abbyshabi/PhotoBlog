@@ -15,13 +15,13 @@ class Location(models.Model):
        """
        self.save()
 
-   def delete(self):
+   def delete_location(self):
        """
        This is the method to delete the instance
        """
        self.delete()
 
-   def update(self,field,val):
+   def update_location(self,field,val):
        """
        This is the method to update the instance
        """
@@ -41,13 +41,13 @@ class Category(models.Model):
        """
        self.save()
 
-   def delete(self):
+   def delete_category(self):
        """
        This is the method to delete the instance
        """
        Category.objects.get(id = self.id).delete()
 
-   def update(self,field,val):
+   def update_category(self,field,val):
        """
        This is the method to update the instance
        """
