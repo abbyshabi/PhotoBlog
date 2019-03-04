@@ -23,10 +23,6 @@ class CategoryTestClass(TestCase):
         categorys = Category.objects.all()
         self.assertTrue(len(categorys)==0)
 
-    def test_update_method(self):
-        editor = Editor.filter_editor('James')
-        fetch_editor = Editor.objects.get(first_name='Nick')
-        self.assertEqual(fetch_editor.first_name,'Nick')
     
 
 class LocationTestClass(TestCase):
@@ -54,5 +50,24 @@ class LocationTestClass(TestCase):
         self.assertTrue(len(locations)==0)
 
 class ImageTestCase(TestCase):
-    def setup(self):
-        self.
+    def setUp(self):
+        """
+        This will create a new image before each test case
+        """
+        self.new_image = Image(name = "dee",description = "i can do it")
+    
+    def tearDown(self):
+        """
+        This will clear the db after each test
+        """
+        Image.objects.all().delete()
+        Category.objects.all().delete()
+        Location.objects.all().delete()
+    
+    def test_instance(self):
+        """
+        This will test whether the new image created is an instance of the Image class
+        """
+        self.assertTrue(isinstance(self.new_image, Image))
+
+    
