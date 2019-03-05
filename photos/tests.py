@@ -1,7 +1,11 @@
 from django.test import TestCase
 from .models import Image,Category,Location
 import datetime as dt
+from django.urls import reverse
+
 # Create your tests here.
+
+
 
 class CategoryTestClass(TestCase):
  # Set up method
@@ -99,3 +103,5 @@ class ImageTestCase(TestCase):
 
         self.new_image.save_image()
         self.assertTrue(len(Image.search_by_category("funny"))>0)
+
+    

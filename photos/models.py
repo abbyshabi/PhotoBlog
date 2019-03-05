@@ -91,16 +91,6 @@ class Image(models.Model):
        This is the method to get a specific image
        """
        return cls.objects.get(id = image_id)
-    
-   @classmethod
-   def copy_image(image_url):
-        find_image = Image.get_image_by_id(image_id)
-        return pyperclip.copy(find_image.image_url)
-
-   @classmethod
-   def show_image(cls,category):
-        images = cls.objects.filter(category__name=category)
-        return images
 
         
    @classmethod
